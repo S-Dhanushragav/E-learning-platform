@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Home page.css">
+    <title>Robotic Process Automation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1{
+            text-align: center;
+        }
+
+        h2 {
+            text-align: left;
+        }
+
+        .course-info {
+            margin-bottom: 20px;
+        }
+
+        .course-info h2 {
+            margin-top: 0;
+        }
+
+        .enroll-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .enroll-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 id="greeting">Welcome</h1>
+    </div><hr>
+    
+    <div class="navbar">
+        <div style="color:brown;text-decoration-style: double;"><h2>Let's Try Bro</h2></div>
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search for courses...">
+            <button onclick="searchCourses()" class="search-button">Search</button>
+        </div>
+        
+        <div class="course-catalog">
+            <!-- Course cards will be dynamically added here based on search results -->
+        </div>
+        
+        <script>
+            // Define the course data 
+            const courses = [
+                { name: "Introduction to Programming", description:"20 hours"},
+                { name: "Data Science and Machine Learning",description:"25 hours"},
+                { name: "Web Development", description:"28 hours"},
+                {name:"Digital Marketing", description:"18 hours"},
+                {name:"Ethical Hacking", description:"15 hours"},
+                {name:"Blockchain Technology Basics",description:"23 hours"},
+                {name:"Cloud Computing Essentials",description:"17 hours"},
+                {name:"Robotic Process Automation (RPA)", description:"15 hours"},
+                {name:"Critical Thinking and Problem Solving", description:"8 hours"},
+                {name:"DevOps Practices and Tools", description:"10 hours"},
+            ];
+        
+            // Function to search for courses based on user input
+            function searchCourses() {
+                const searchInput = document.getElementById("searchInput").value.toLowerCase();
+                const filteredCourses = courses.filter(course => course.name.toLowerCase().includes(searchInput) || course.description.toLowerCase().includes(searchInput));
+                displayCourses(filteredCourses);
+            }
+        
+            // Function to display filtered courses
+            function displayCourses(courses) {
+                const courseCatalog = document.querySelector('.course-catalog');
+                courseCatalog.innerHTML = '';
+        
+                courses.forEach(course => {
+                    const courseCard = document.createElement('div');
+                    courseCard.classList.add('course-card');
+                    courseCard.innerHTML = `
+                        <h3>${course.name}</h3>
+                        <p>${course.description}</p>
+                    `;
+                    courseCatalog.appendChild(courseCard);
+                });
+            }
+        </script>
+        <div><a href="Feedback page.html">FeedBack</a></div>
+        <div><a href="Notification page.html">Notifications</a></div>
+        <div class="profile">
+            Profile
+            <div class="profile-menu">
+                <a href="#">My Courses</a>
+                <a href="Edit profile.html">Edit Profile</a>
+                <a href="Login Page.html">Logout</a>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <script>
+        // Get the current time
+        const currentTime = new Date().getHours();
+    
+        // Get the greeting element
+        const greetingElement = document.getElementById('greeting');
+    
+        // Set the greeting based on the time of day
+        if (currentTime >= 0 && currentTime < 12) {
+            greetingElement.textContent = 'Good morning, Welcome Learner!!';
+        } else if (currentTime >= 12 && currentTime < 16) {
+            greetingElement.textContent = 'Good afternoon, Welcome Learner!!';
+        } else if (currentTime >= 16 && currentTime < 21) {
+            greetingElement.textContent = 'Good evening, Welcome Learner!!';
+        } else {
+            greetingElement.textContent = 'Welcome Learner!!';
+        }
+    </script>    
+    <div class="container">
+        <h1>Robotic Process Automation</h1>
+    <div class="course-info">
+        <h2>Course Description</h2>
+        <p>This course focuses on Robotic Process Automation (RPA), a technology that automates repetitive tasks by leveraging software robots. Participants will learn how to design, develop, and deploy RPA solutions using leading RPA platforms like UiPath, Automation Anywhere, and Blue Prism. Topics include process identification, bot creation, workflow automation, and bot monitoring, with practical hands-on exercises.</p>
+    </div>
+    <div class="course-info">
+        <h2>Instructor</h2>
+        <p><strong>Vekas</strong><br>Robotic Specialist with 14+ years of experience</p>
+    </div>
+    <div class="course-info">
+        <h2>Duration</h2>
+        <p>15 Hours</p>
+    </div>
+    <div class="course-info">
+        <h2>Enrollment</h2>
+        <p>This course is available for enrollment. Sign up now to get started!</p>
+        <a href="#" class="enroll-button">Enroll Now</a>
+    </div>
+    <div class="course-info">
+        <h2>Additional Resources</h2>
+        <ul>
+            <li><a href="#">Syllabus</a></li>
+            <li><a href="#">Course Materials</a></li>
+            <li><a href="#">Recommended Books</a></li>
+        </ul>
+    </div>
+    </div>
+
+</body>
+</html>
+

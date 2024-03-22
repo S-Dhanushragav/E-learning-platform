@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Home page.css">
+    <title>Home Page</title>
+</head>
+<body>
+    
+<div class="header">
+    <h1 id="greeting">Welcome</h1>
+</div><hr>
+
+<div class="navbar">
+    <div style="color:brown;text-decoration-style: double;"><h2>Let's Try Bro</h2></div>
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search for courses...">
+        <button onclick="searchCourses()" class="search-button">Search</button>
+    </div>
+    
+    <div class="course-catalog">
+        <!-- Course cards will be dynamically added here based on search results -->
+    </div>
+    
+    <script>
+        // Define the course data 
+        const courses = [
+            { name: "Introduction to Programming", description:"20 hours"},
+            { name: "Data Science and Machine Learning",description:"25 hours"},
+            { name: "Web Development", description:"28 hours"},
+            {name:"Digital Marketing", description:"18 hours"},
+            {name:"Ethical Hacking", description:"15 hours"},
+            {name:"Blockchain Technology Basics",description:"23 hours"},
+            {name:"Cloud Computing Essentials",description:"17 hours"},
+            {name:"Robotic Process Automation (RPA)", description:"15 hours"},
+            {name:"Critical Thinking and Problem Solving", description:"8 hours"},
+            {name:"DevOps Practices and Tools", description:"10 hours"},
+        ];
+    
+        // Function to search for courses based on user input
+        function searchCourses() {
+            const searchInput = document.getElementById("searchInput").value.toLowerCase();
+            const filteredCourses = courses.filter(course => course.name.toLowerCase().includes(searchInput) || course.description.toLowerCase().includes(searchInput));
+            displayCourses(filteredCourses);
+        }
+    
+        // Function to display filtered courses
+        function displayCourses(courses) {
+            const courseCatalog = document.querySelector('.course-catalog');
+            courseCatalog.innerHTML = '';
+    
+            courses.forEach(course => {
+                const courseCard = document.createElement('div');
+                courseCard.classList.add('course-card');
+                courseCard.innerHTML = `
+                    <h3>${course.name}</h3>
+                    <p>${course.description}</p>
+                `;
+                courseCatalog.appendChild(courseCard);
+            });
+        }
+    </script>
+    <div><a href="Feedback page.html">FeedBack</a></div>
+    <div><a href="Notification page.html">Notifications</a></div>
+    <div class="profile">
+        Profile
+        <div class="profile-menu">
+            <a href="#">My Courses</a>
+            <a href="Edit profile.html">Edit Profile</a>
+            <a href="Login Page.html">Logout</a>
+        </div>
+    </div>
+</div>
+<hr>
+
+<div class="about-us">
+    <h2>About Us</h2>
+    <p>Welcome to Let's Try Bro, where learning knows no boundaries. We are a team of passionate educators, technologists, and innovators dedicated to revolutionizing the way people learn online. Our mission is to create a dynamic and student-centric e-learning environment that maximizes learning outcomes, promotes active participation, and adapts to individual learning styles and preferences. At Let's try bro, we understand the challenges faced by traditional online learning systems – the lack of interactivity, generic content delivery, and limited customization options. That's why we've set out to build a platform that goes beyond these limitations, offering a truly immersive and personalized learning experience. Our platform is designed with the learner in mind. We believe that education should be engaging, interactive, and tailored to each individual's needs. With our innovative features such as interactive multimedia content creation tools, gamified learning modules, and adaptive learning algorithms, students can embark on a learning journey that is both enjoyable and effective. But we're more than just a platform – we're a community. Through collaborative learning spaces, real-time feedback mechanisms, and seamless integration with learning management systems and third-party educational resources, we foster a culture of collaboration, support, and continuous improvement. Whether you're a student looking to expand your knowledge, an educator seeking to inspire your students, or an organization striving to upskill your workforce, [Platform Name] is here to empower you on your learning journey. Join us today and experience the future of online learning.</p>
+</div>
+
+<div class="top-courses">
+    <h2 style="color: cyan;">Top Viewed Courses</h2>
+    <div class="course">
+        <h3><a href="Intro of pro.html">Introduction to Programming - 20 hours</a></h3>
+        <p>A beginner-friendly course covering the fundamentals of programming languages such as Python, Java, or JavaScript.</p>
+        <pre><span class="free">1500</span> <u style="color: crimson;">Free</u></pre>
+    </div>
+    <div class="course">
+        <h3><a href="DS ML page.html">Data Science and Machine Learning - 25 hours</a></h3>
+        <p>An in-depth exploration of data analysis, machine learning algorithms, and predictive modeling techniques.</p>
+        <pre><span class="free">2000</span> <u style="color: crimson;">Free</u></pre>
+    </div>
+    <div class="course">
+        <h3><a href="Web dev page.html">Web Development - 28 hours</a></h3>
+        <p>Learn how to design and develop interactive websites and web applications using HTML, CSS, and JavaScript.</p>
+        <pre><span class="free">1800</span> <u style="color: crimson;">Free</u></pre>
+    </div>
+</div>
+
+<script>
+    // Get the current time
+    const currentTime = new Date().getHours();
+
+    // Get the greeting element
+    const greetingElement = document.getElementById('greeting');
+
+    // Set the greeting based on the time of day
+    if (currentTime >= 0 && currentTime < 12) {
+        greetingElement.textContent = 'Good morning, Welcome Learner!!';
+    } else if (currentTime >= 12 && currentTime < 16) {
+        greetingElement.textContent = 'Good afternoon, Welcome Learner!!';
+    } else if (currentTime >= 16 && currentTime < 21) {
+        greetingElement.textContent = 'Good evening, Welcome Learner!!';
+    } else {
+        greetingElement.textContent = 'Welcome Learner!!';
+    }
+</script>
+
+<div class="course-catalog">
+    <h2 style="color: darkorchid;">Course Catalog</h2>
+    <div class="course-card" onclick="viewCourseDetails('Course 1')">
+        <h3><a href="Intro of pro.html">Introduction to Programming - 20 hours</a></h3>
+        <p>A beginner-friendly course covering the fundamentals of programming languages such as Python, Java, or JavaScript.</p>
+    </div>
+    <div class="course-card" onclick="viewCourseDetails('Course 2')">
+        <h3><a href="DS ML page.html">Data Science and Machine Learning - 25 hours</a></h3>
+        <p>An in-depth exploration of data analysis, machine learning algorithms, and predictive modeling techniques.</p>
+    </div>
+    <div class="course-card" onclick="viewCourseDetails('Course 3')">
+        <h3><a href="Web dev page.html">Web Development - 28 hours</a></h3>
+        <p>Learn how to design and develop interactive websites and web applications using HTML, CSS, and JavaScript.</p>
+    </div>
+    <div class="course-card" onclick="viewCourseDetails('Course 4')">
+        <h3><a href="Dig mar.html">Digital Marketing - 18 hours</a></h3>
+        <p>Explore strategies for online marketing, including search engine optimization (SEO), social media marketing, and email marketing.</p>
+    </div>
+    <div class="course-card" onclick="viewCourseDetails('Course 5')">
+        <h3><a href="Ethical hack.html">Ethical Hacking - 15 hours</a></h3>
+        <p>Learn the principles and techniques of ethical hacking, including penetration testing, network security, and vulnerability assessment.</p>
+    </div>
+    <div class="course-card" onclick="viewCourseDetails('Course 6')">
+        <h3><a href="Block chain.html">Blockchain Technology Basics - 23 hours</a></h3>
+        <p>This course provides an introduction to blockchain technology, covering its fundamental concepts, architecture, and applications. Participants will learn about decentralized ledgers, cryptographic techniques, smart contracts, and consensus mechanisms. Additionally, the course explores real-world use cases of blockchain technology across various industries, including finance, supply chain, healthcare, and more.</p>
+    </div>
+    <div class="course-card" onclick="viewCourseDetails('Course 7')">
+        <h3><a href="Cloud compu.html">Cloud Computing Essentials - 17 hours</a></h3>
+        <p>Cloud Computing Essentials offers a comprehensive overview of cloud computing principles, services, and deployment models. Students will gain an understanding of cloud infrastructure, including virtualization, storage, networking, and security. The course also covers popular cloud platforms such as Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP), along with best practices for cloud adoption and management.</p>
+    </div>
+    <div class="course-card" onclick="viewCourseDetails('Course 8')">
+        <h3><a href="Robo.html">Robotic Process Automation (RPA) - 15 hours</a></h3>
+        <p>This course focuses on Robotic Process Automation (RPA), a technology that automates repetitive tasks by leveraging software robots. Participants will learn how to design, develop, and deploy RPA solutions using leading RPA platforms like UiPath, Automation Anywhere, and Blue Prism. Topics include process identification, bot creation, workflow automation, and bot monitoring, with practical hands-on exercises.</p>
+    </div>
+    <div class="course-card" onclick="viewCourseDetails('Course 9')">
+        <h3><a href="Critical think.html">Critical Thinking and Problem Solving - 8 hours</a></h3>
+        <p>Critical Thinking and Problem Solving course equips learners with essential skills for analyzing, evaluating, and solving complex problems effectively. Participants will develop critical thinking strategies, including logical reasoning, argument analysis, and decision-making techniques. The course also covers problem-solving methodologies such as root cause analysis, brainstorming, and decision trees, empowering learners to tackle challenges with confidence.</p>
+    </div>
+    <div class="course-card" onclick="viewCourseDetails('Course 10')">
+        <h3><a href="Devops.html">DevOps Practices and Tools - 10 hours</a></h3>
+        <p>DevOps Practices and Tools introduces learners to the principles, methodologies, and tools used in DevOps (Development and Operations) practices. Participants will explore continuous integration, continuous delivery, infrastructure as code, and automation techniques essential for streamlining software development and deployment processes. The course also covers popular DevOps tools like Jenkins, Docker, Kubernetes, and Git, enabling learners to implement DevOps practices in real-world scenarios.</p>
+    </div>
+    
+</div>
+
+<script>
+    // Function to view course details
+    function viewCourseDetails(courseName) {
+        // You can implement logic to navigate to the course details page or show a modal with more information
+        alert('View details of ' + courseName);
+    }
+</script>
+</body>
+</html>

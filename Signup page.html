@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #message {
+            margin-top: 10px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<h1 style="background-color: aquamarine;text-align: center;">Welcome to Let's Try Bro</h1>
+<div style="background-color: darkblue;"><br><hr></div>
+<div class="container">
+    <h2>Sign Up</h2>
+    <form id="signupForm" action="#" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required><br>
+        <button type="button" onclick="checkPassword()">Sign Up</button>
+        <p id="message"></p>
+    </form>
+</div>
+
+<script>
+    function checkPassword() {
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        var confirmPassword = document.getElementById('confirmPassword').value;
+
+        if (!username || !password || !confirmPassword) {
+            document.getElementById('message').innerHTML = "Please fill in all fields.";
+            return;
+        }
+
+        if (password === confirmPassword) {
+            // Redirect to home page after sign up
+            window.location.href = "Home page.html";
+        } else {
+            document.getElementById('message').innerHTML = "Passwords do not match. Please try again.";
+        }
+    }
+</script>
+
+</body>
+</html>
